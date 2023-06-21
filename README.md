@@ -1,1 +1,2 @@
 # QuickNotes
+QuickNotes is an app where people can take time to write down notes that will save and be available to them 24/7 on the get go. If you want to edit a note this can be done by clicking on it and there is also a delete button at the bottom if the user wants to remove the note. If the app is closed or restarted the progress is saved into CoreData which allows the app to pick up and continue from where it began.
