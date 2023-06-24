@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class NoteDetailVC: UIViewController {
+class NoteDetailVC: UIViewController, UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet weak var titleTF: UITextField!
     @IBOutlet weak var descriptionTV: UITextView!
@@ -20,6 +20,8 @@ class NoteDetailVC: UIViewController {
         if(selectedNote != nil) {
             titleTF.text = selectedNote?.title
             descriptionTV.text = selectedNote?.desc
+            self.titleTF.delegate = self
+            self.descriptionTV.delegate = self
         }
     }
     
@@ -86,5 +88,12 @@ class NoteDetailVC: UIViewController {
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return titleTF.resignFirstResponder()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
 

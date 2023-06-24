@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D0F1E412A44FA5E00BD3620 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9D0F1E402A44FA5E00BD3620 /* OpenAISwift */; };
+		9D0F1E432A44FB3E00BD3620 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0F1E422A44FB3E00BD3620 /* APICaller.swift */; };
+		9D0F1E452A4574FE00BD3620 /* ChatBotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0F1E442A4574FE00BD3620 /* ChatBotViewController.swift */; };
 		9D447DB82A3EA6FC00937DA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D447DB72A3EA6FC00937DA9 /* AppDelegate.swift */; };
 		9D447DBA2A3EA6FC00937DA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D447DB92A3EA6FC00937DA9 /* SceneDelegate.swift */; };
 		9D447DBC2A3EA6FC00937DA9 /* NoteDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D447DBB2A3EA6FC00937DA9 /* NoteDetailVC.swift */; };
@@ -20,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D0F1E422A44FB3E00BD3620 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		9D0F1E442A4574FE00BD3620 /* ChatBotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotViewController.swift; sourceTree = "<group>"; };
 		9D447DB42A3EA6FC00937DA9 /* QuickNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D447DB72A3EA6FC00937DA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D447DB92A3EA6FC00937DA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D0F1E412A44FA5E00BD3620 /* OpenAISwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +81,8 @@
 				9D447DC82A3EA6FE00937DA9 /* Info.plist */,
 				9D447DC02A3EA6FC00937DA9 /* QuickNotes.xcdatamodeld */,
 				9D5768BD2A3EB24A00DE2B83 /* Note.swift */,
+				9D0F1E422A44FB3E00BD3620 /* APICaller.swift */,
+				9D0F1E442A4574FE00BD3620 /* ChatBotViewController.swift */,
 			);
 			path = QuickNotes;
 			sourceTree = "<group>";
@@ -95,6 +103,9 @@
 			dependencies = (
 			);
 			name = QuickNotes;
+			packageProductDependencies = (
+				9D0F1E402A44FA5E00BD3620 /* OpenAISwift */,
+			);
 			productName = QuickNotes;
 			productReference = 9D447DB42A3EA6FC00937DA9 /* QuickNotes.app */;
 			productType = "com.apple.product-type.application";
@@ -123,6 +134,9 @@
 				Base,
 			);
 			mainGroup = 9D447DAB2A3EA6FB00937DA9;
+			packageReferences = (
+				9D0F1E3F2A44FA5E00BD3620 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+			);
 			productRefGroup = 9D447DB52A3EA6FC00937DA9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -156,7 +170,9 @@
 				9D447DC22A3EA6FC00937DA9 /* QuickNotes.xcdatamodeld in Sources */,
 				9D5768BA2A3EAD8F00DE2B83 /* NoteCell.swift in Sources */,
 				9D447DB82A3EA6FC00937DA9 /* AppDelegate.swift in Sources */,
+				9D0F1E452A4574FE00BD3620 /* ChatBotViewController.swift in Sources */,
 				9D447DBA2A3EA6FC00937DA9 /* SceneDelegate.swift in Sources */,
+				9D0F1E432A44FB3E00BD3620 /* APICaller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +390,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9D0F1E3F2A44FA5E00BD3620 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9D0F1E402A44FA5E00BD3620 /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D0F1E3F2A44FA5E00BD3620 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		9D447DC02A3EA6FC00937DA9 /* QuickNotes.xcdatamodeld */ = {
