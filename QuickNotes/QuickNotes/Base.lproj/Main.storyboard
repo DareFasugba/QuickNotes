@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u76-C2-Qcd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u76-C2-Qcd">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -73,7 +74,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Note Details" id="fbQ-uv-6mI">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="vA4-2r-W7O">
+                        <barButtonItem key="rightBarButtonItem" id="vA4-2r-W7O">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="rpd-Pj-7iu">
                                 <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -94,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="1958" y="-673"/>
         </scene>
-        <!--QuickNotes-->
+        <!--NotepadAI-->
         <scene sceneID="hDn-JG-6e2">
             <objects>
                 <tableViewController id="9Zy-y2-iFy" customClass="NoteTableView" customModule="QuickNotes" customModuleProvider="target" sceneMemberID="viewController">
@@ -147,9 +148,9 @@
                             <outlet property="delegate" destination="9Zy-y2-iFy" id="vQJ-I3-rmK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="QuickNotes" id="u0E-Jv-gGa">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="8qg-34-qlT">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Jiz-NT-Onn">
+                    <navigationItem key="navigationItem" title="NotepadAI" id="u0E-Jv-gGa">
+                        <barButtonItem key="leftBarButtonItem" id="8qg-34-qlT">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Jiz-NT-Onn">
                                 <rect key="frame" x="16" y="5" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -159,7 +160,7 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="rkq-DL-1UL">
+                        <barButtonItem key="rightBarButtonItem" id="rkq-DL-1UL">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="UN2-mi-sMF">
                                 <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -179,17 +180,27 @@
             </objects>
             <point key="canvasLocation" x="891" y="-314"/>
         </scene>
-        <!--QuickNotes Chatbot-->
+        <!--Notepad AI Chatbot-->
         <scene sceneID="X5C-l7-77L">
             <objects>
                 <viewController id="qOR-4p-mFz" customClass="ChatBotViewController" customModule="QuickNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j4L-SY-uWN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="4To-wz-5no">
+                                <rect key="frame" x="186" y="416" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="5wA-UK-7Dq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="QuickNotes Chatbot" id="TRq-F2-j6l"/>
+                    <navigationItem key="navigationItem" title="Notepad AI Chatbot" id="TRq-F2-j6l"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="4To-wz-5no" id="SEY-Oc-gwr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YsG-YY-wjg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

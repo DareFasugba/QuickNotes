@@ -10,6 +10,8 @@ import UIKit
 
 class ChatBotViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     private let field: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Type here..."
@@ -46,6 +48,7 @@ class ChatBotViewController: UIViewController, UITableViewDataSource, UITableVie
             table.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             table.bottomAnchor.constraint(equalTo: field.topAnchor)
         ])
+        setUpActivityIndicator()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,7 +65,20 @@ class ChatBotViewController: UIViewController, UITableViewDataSource, UITableVie
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let text = textField.text, !text.isEmpty {
             models.append(text)
+            
+            // Show the activity indicator
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+            print("Is animating")
+            
             APICaller.shared.getResponse(input: text) { [weak self] result in
+                // Hide the activity indicator
+                DispatchQueue.main.async {
+                    self?.activityIndicator.stopAnimating()
+                    self?.activityIndicator.isHidden = true
+                    print("isnt animating")
+                }
+                
                 switch result {
                 case .success(let output):
                     self?.models.append(output)
@@ -72,6 +88,7 @@ class ChatBotViewController: UIViewController, UITableViewDataSource, UITableVie
                         self?.field.resignFirstResponder()
                     }
                 case .failure:
+                    self?.showAlertAction(title: "Failure", message: "Encountered error")
                     print("Failed")
                 }
             }
@@ -82,5 +99,25 @@ class ChatBotViewController: UIViewController, UITableViewDataSource, UITableVie
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    func showAlertAction(title: String, message: String){
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
+                    print("Action")
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    
+    func setUpActivityIndicator() {
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = .large
+        activityIndicator.color = UIColor.black
+        activityIndicator.isHidden = true
+        view.addSubview(activityIndicator)
+    }
+
     
 }
